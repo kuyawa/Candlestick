@@ -2,4 +2,4 @@
 
 A simple Candlestick chart, nothing fancy.
 
-Screenshot here...
+![Screenshot](https://raw.githubusercontent.com/kuyawa/Gallery/master/Candlestick/candlestick.jpg)
