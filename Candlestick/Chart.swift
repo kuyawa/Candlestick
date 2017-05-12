@@ -9,6 +9,13 @@
 import Cocoa
 import CoreGraphics
 
+extension Int {
+    func times(action: () -> Void) {
+        guard self > 0 else { return }
+        for _ in 0..<self { action() }
+    }
+}
+
 class Chart: NSView {
 
     override var isFlipped: Bool { return true } // Flip coord system
@@ -115,7 +122,8 @@ class Chart: NSView {
         var y = axisX.base
         var step = Int(axisX.length / (n + 1))
         
-        for _ in 0..<n {
+        //for _ in 0..<n {
+        n.times {
             x = x + step
             context?.line(x, axisX.base - 4, x, axisX.base + 4, lineColor: Color.gray)
         }
@@ -124,7 +132,8 @@ class Chart: NSView {
         n = axisY.ticks
         step = Int(axisY.length / (n + 1))
         
-        for _ in 0..<n {
+        //for _ in 0..<n {
+        n.times {
             y = y - step
             context?.line(axisY.base - 4, y, axisY.base + 4, y, lineColor: Color.gray)
         }
